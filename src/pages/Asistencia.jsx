@@ -32,6 +32,11 @@ const Asistencia = () => {
 
   const handleChange = (event) => {
 
+    if (event.target.value === "") {
+
+      setList(asistencia);
+    }
+
     const value = event.target.value;
     setBuscar(value);
   }
@@ -39,12 +44,6 @@ const Asistencia = () => {
   const handleSearch = (event) => {
 
     if (event.key === 'Enter') {
-
-      const newSeccion = asistencia.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
-      setList(newSeccion);
-    }
-
-    if (event.key === 'Backspace') {
 
       const newSeccion = asistencia.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
       setList(newSeccion);

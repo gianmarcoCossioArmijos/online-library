@@ -31,6 +31,11 @@ const Enfermeria = () => {
 
   const handleChange = (event) => {
 
+    if (event.target.value === "") {
+
+      setList(enfermeria);
+    }
+
     const value = event.target.value;
     setBuscar(value);
   }
@@ -41,18 +46,6 @@ const Enfermeria = () => {
 
       const newSeccion = enfermeria.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
       setList(newSeccion);
-    }
-
-    if (event.key === 'Backspace') {
-
-      if (buscar !== "") {
-
-        const newSeccion = enfermeria.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
-        setList(newSeccion);
-      } else {
-
-        setList(enfermeria);
-      }
     }
   }
 

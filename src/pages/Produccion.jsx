@@ -31,6 +31,11 @@ const Produccion = () => {
 
   const handleChange = (event) => {
 
+    if (event.target.value === "") {
+
+      setList(produccion);
+    }
+
     const value = event.target.value;
     setBuscar(value);
   }
@@ -41,18 +46,6 @@ const Produccion = () => {
 
       const newSeccion = produccion.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
       setList(newSeccion);
-    }
-
-    if (event.key === 'Backspace') {
-
-      if (buscar !== "") {
-
-        const newSeccion = produccion.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
-        setList(newSeccion);
-      } else {
-
-        setList(produccion);
-      }
     }
   }
 
