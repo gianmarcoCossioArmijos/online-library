@@ -15,7 +15,6 @@ import AsistenciaLibros from '../components/administracion-section/AsistenciaLib
 import EnfermeriaLibros from '../components/administracion-section/EnfermeriaLibros'
 import PlataformaLibros from '../components/administracion-section/PlataformaLibros'
 
-import { AuthProvider } from '../context/AuthContext'
 import { store } from '../store/configureSlice'
 import { Provider } from 'react-redux' 
 
@@ -28,8 +27,7 @@ import Detalles from '../components/main-section/Detalles'
 const Router = () => {
   return (
     <>
-      <Provider store={store}>
-        <AuthProvider>
+        <Provider store={store}>
           <BrowserRouter>
             <BaseLayout>
               <Routes>
@@ -58,8 +56,7 @@ const Router = () => {
               </Routes>
             </BaseLayout>
           </BrowserRouter>
-        </AuthProvider>
-      </Provider>
+        </Provider>
     </>
   )
 }

@@ -32,7 +32,7 @@ const NewBookAsistencia = () => {
     event.preventDefault();
     const response = await setAsistencia(libro);
     
-    if (!response) {
+    if (response) {
 
         setLibro({
             titulo: "",

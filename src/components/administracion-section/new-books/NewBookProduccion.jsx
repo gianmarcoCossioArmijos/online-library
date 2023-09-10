@@ -30,9 +30,9 @@ const NewBookProduccion = () => {
   const hanldeSubmit = async (event) => {
 
     event.preventDefault();
-    await setProduccion(libro);
+    const response = await setProduccion(libro);
     
-    if (!response) {
+    if (response) {
 
         setLibro({
             titulo: "",

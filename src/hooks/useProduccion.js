@@ -7,19 +7,25 @@ export const useProduccion = () => {
 
     const getProduccion = async() => {
 
-        const q = query(reference);
-        const data = await getDocs(q);
-        const results = []
-
-        data.forEach(doc => {
+        try {
             
-            results.push({
-                id: doc.id,
-                ...doc.data()
-            })
-        });
+            const q = query(reference);
+            const data = await getDocs(q);
+            const results = []
 
-        return results;
+            data.forEach(doc => {
+                
+                results.push({
+                    id: doc.id,
+                    ...doc.data()
+                })
+            });
+
+            return results;
+        } catch (error) {
+
+            return error;
+        }
     }
 
     const setProduccion = async(libro) => {
@@ -27,6 +33,7 @@ export const useProduccion = () => {
         try {
             
             const response = await addDoc(reference, libro);
+            return response;
         } catch (error) {
 
             return error;

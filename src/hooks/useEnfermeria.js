@@ -7,19 +7,25 @@ export const useEnfermeria = () => {
 
     const getEnfermeria = async() => {
 
-        const q = query(reference);
-        const data = await getDocs(q);
-        const results = []
-
-        data.forEach(doc => {
+        try {
             
-            results.push({
-                id: doc.id,
-                ...doc.data()
-            })
-        });
+            const q = query(reference);
+            const data = await getDocs(q);
+            const results = []
 
-        return results;
+            data.forEach(doc => {
+                
+                results.push({
+                    id: doc.id,
+                    ...doc.data()
+                })
+            });
+
+            return results;
+        } catch (error) {
+
+            return error;
+        }
     }
 
     const setEnfermeria = async(libro) => {
@@ -27,6 +33,7 @@ export const useEnfermeria = () => {
         try {
             
             const response = await addDoc(reference, libro);
+            return response;
         } catch (error) {
 
             return error;

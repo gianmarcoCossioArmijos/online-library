@@ -6,12 +6,18 @@ import Aside from '../components/main-section/Aside.jsx'
 import DefaultThumbnail from '../components/DefaultThumbnail'
 import { FaRegEye } from "react-icons/fa";
 
+import { addBook } from '../store/bookSlice.js';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 const Plataformas = () => {
   const [ plataformas, setPlataformas ] = useState([]);
   const [ buscar, setBuscar ] = useState("");
   const [ list, setList ] = useState([]);
 
   const { getPlataformas } = usePlataformas();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -80,7 +86,7 @@ const Plataformas = () => {
               <hr />
 
               <div className='h-[40px] px-2 flex justify-center font-bold capitalize text-xs text-center'>
-                <h5 className='self-center'>{libro?.titulo}</h5>
+                <h5 className='self-center truncate overflow-hidden'>{libro?.titulo}</h5>
               </div>
 
               <hr />

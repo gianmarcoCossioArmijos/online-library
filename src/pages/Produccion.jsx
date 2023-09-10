@@ -6,12 +6,18 @@ import Aside from '../components/main-section/Aside.jsx'
 import DefaultThumbnail from '../components/DefaultThumbnail'
 import { FaRegEye } from "react-icons/fa";
 
+import { addBook } from '../store/bookSlice.js';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 const Produccion = () => {
   const [ produccion, setProduccion ] = useState([]);
   const [ buscar, setBuscar ] = useState("");
   const [ list, setList ] = useState([]);
 
   const { getProduccion } = useProduccion();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -59,7 +65,7 @@ const Produccion = () => {
           <div className='w-full h-fit py-3 px-1 flex'>
 
             <input
-                type="text"
+                type="search"
                 name="buscar"
                 value={buscar}
                 placeholder='Buscar por titulo...'
@@ -80,7 +86,7 @@ const Produccion = () => {
                 <hr />
 
                 <div className='h-[40px] px-2 flex justify-center font-bold capitalize text-xs text-center'>
-                  <h5 className='self-center'>{libro?.titulo}</h5>
+                  <h5 className='self-center truncate overflow-hidden'>{libro?.titulo}</h5>
                 </div>
 
                 <hr />

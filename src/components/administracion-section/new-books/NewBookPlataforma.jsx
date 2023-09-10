@@ -32,7 +32,7 @@ const NewBookPlataforma = () => {
     event.preventDefault();
     const response = await setPlataformas(libro);
     
-    if (!response) {
+    if (response) {
 
         setLibro({
             titulo: "",

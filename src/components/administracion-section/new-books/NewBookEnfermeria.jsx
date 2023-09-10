@@ -30,9 +30,9 @@ const NewBookEnfermeria = () => {
   const hanldeSubmit = async(event) => {
 
     event.preventDefault();
-    await setEnfermeria(libro);
+    const response = await setEnfermeria(libro);
     
-    if (!response) {
+    if (response) {
 
       setLibro({
           titulo: "",
@@ -46,10 +46,10 @@ const NewBookEnfermeria = () => {
           seccion: "librosEnfermeria"
       })
       toast.success("Libro registrado!");
-  } else {
+    } else {
 
       toast.error("Error al registrar libro!");
-  }
+    }
   }
 
   return (

@@ -1,10 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import { useLogin } from '../hooks/useLogin.js'
-import { AuthContext } from '../context/AuthContext.jsx';
-
-import { Toaster, toast } from 'sonner';
 
 const Login = () => {
     const [usuario, setUsuario] = useState({ dni: "", clave: ""});
@@ -12,7 +9,6 @@ const Login = () => {
 
     const { getLogin } = useLogin();
     const navigate = useNavigate();
-    const { saveAuth } = useContext(AuthContext);
 
     useEffect(() => {
 
@@ -36,28 +32,13 @@ const Login = () => {
 
         event.preventDefault();
 
-        const response = await getLogin(usuario.dni, usuario.clave);
-
-        if (response === true) {
-
-            saveAuth(isAuth);
-            toast.success('Bienvenido al Panel de Control');
-        } else {
-
-            setUsuario({ dni: "", clave: ""});
-            toast.error('Usuario o contraseña incorrectos');
-            navigate("/plataforma-books");
-        }
+        await getLogin(usuario.dni, usuario.clave);
+        navigate("/plataforma-books");
     }
 
   return (
     <div className='page-base m-auto'>
 
-        <Toaster 
-            position="bottom-right"
-            richColors
-            closeButton/>
-        
         <div className='card-base m-auto self-center my-12'>
 
             <h3 className='mt-3 mb-6 font-bold text-lg text-center'>Iniciar Sesion</h3>
