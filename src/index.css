@@ -99,7 +99,7 @@
     }
 
     .footer-base {
-        @apply w-full py-16 flex justify-evenly gap-4 second-color text-center text-slate-400 text-sm
+        @apply w-full py-16 flex justify-evenly gap-4 second-color text-center text-slate-500 text-sm
       }
 
     .libro-base {

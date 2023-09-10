@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
 
           <div className='flex flex-col text-sm'>
-            <span>Derechos reservados - San Agustin 2023</span>
+            <span>Derechos reservados - 2023</span>
 
             <Link className='flex flex-col text-sm' to="https://gianmarco-cossio-portafolio.vercel.app/" target='blank'>
               <span>Desarrollado por <strong>Gianmarco Cossio</strong> </span>
