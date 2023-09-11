@@ -44,15 +44,8 @@ const Enfermeria = () => {
 
     const value = event.target.value;
     setBuscar(value);
-  }
-
-  const handleSearch = (event) => {
-
-    if (event.key === 'Enter') {
-
-      const newSeccion = enfermeria.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
-      setList(newSeccion);
-    }
+    const newSeccion = enfermeria.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
+    setList(newSeccion)
   }
 
   return (
@@ -70,7 +63,6 @@ const Enfermeria = () => {
               value={buscar}
               placeholder='Buscar por titulo...'
               onChange={handleChange}
-              onKeyDown={handleSearch}
               className='w-full p-2 rounded-lg border shadow-lg'/>
 
         </div>
