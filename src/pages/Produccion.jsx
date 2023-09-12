@@ -58,7 +58,7 @@ const Produccion = () => {
           <div className='w-full h-fit py-3 px-1 flex'>
 
             <input
-                type="search"
+                type="text"
                 name="buscar"
                 value={buscar}
                 placeholder='Buscar por titulo...'

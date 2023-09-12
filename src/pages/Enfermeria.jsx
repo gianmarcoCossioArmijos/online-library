@@ -41,7 +41,7 @@ const Enfermeria = () => {
 
       setList(enfermeria);
     }
-
+    
     const value = event.target.value;
     setBuscar(value);
     const newSeccion = enfermeria.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
@@ -58,7 +58,7 @@ const Enfermeria = () => {
         <div className='w-full h-fit py-3 px-1 flex'>
 
           <input
-              type="search"
+              type="text"
               name="buscar"
               value={buscar}
               placeholder='Buscar por titulo...'
