@@ -42,7 +42,7 @@ const Plataformas = () => {
       setList(plataformas);
     }
     
-    const value = event.target.value;
+    const value = event.target.value.toLowerCase();
     setBuscar(value);
     const newSeccion = plataformas.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
     setList(newSeccion);

@@ -42,7 +42,7 @@ const Asistencia = () => {
       setList(asistencia);
     }
 
-    const value = event.target.value;
+    const value = event.target.value.toLowerCase();
     setBuscar(value);
     const newSeccion = asistencia.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
     setList(newSeccion);

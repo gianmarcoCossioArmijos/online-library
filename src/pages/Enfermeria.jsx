@@ -42,7 +42,7 @@ const Enfermeria = () => {
       setList(enfermeria);
     }
     
-    const value = event.target.value;
+    const value = event.target.value.toLowerCase();
     setBuscar(value);
     const newSeccion = enfermeria.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
     setList(newSeccion)

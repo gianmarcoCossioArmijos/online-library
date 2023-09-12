@@ -42,7 +42,7 @@ const Produccion = () => {
       setList(produccion);
     }
 
-    const value = event.target.value;
+    const value = event.target.value.toLowerCase();
     setBuscar(value);
     const newSeccion = produccion.filter((libro) => libro.titulo.toLowerCase().includes(buscar) === true);
     setList(newSeccion);
